@@ -6,15 +6,16 @@ A modern Pakistani fashion e-commerce website featuring elegant 1-piece, 2-piece
 
 ### Home Page
 
-![Rameen Store Home](website-home.png)
+![Online Clothing Store Home](website-home.png)
 
 ### Shop
 
-![Rameen Store Shop](website-shop.png)
+![Online Clothing Store Shop](website-shop.png)
 
 ### Cart & Checkout
 
-![Rameen Store Cart](website-cart.png)
+![Online Clothing Store Cart](website-cart.png)
+
 
 ## Features
 
