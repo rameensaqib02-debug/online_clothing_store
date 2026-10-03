@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rameen Store | Pakistani Fashion</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            RAMEEN<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛍 Cart
+            <span id="cartCount">0</span>
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="small-title">
+            RAMEEN STORE · PAKISTANI COLLECTION
+        </p>
+
+        <h1>
+            Elegance in<br>
+            <em>Every Stitch.</em>
+        </h1>
+
+        <p class="hero-text">
+            Discover beautiful Pakistani fashion,
+            graceful silhouettes and thoughtfully selected
+            1-piece, 2-piece and 3-piece suits.
+        </p>
+
+        <a href="#shop" class="shop-btn">
+            Explore Collection →
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img
+            src="https://nishatlinen.com/cdn/shop/files/U3PE-NISHA26WV1-70-_4.jpg?v=1788851246&width=500"
+            alt="Rameen Store Pakistani clothing collection"
+            onerror="imageFallback(this)"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORY INTRO -->
+
+<section class="category-intro">
+
+    <p class="small-title">
+        RAMEEN COLLECTION
+    </p>
+
+    <h2>
+        Pakistani fashion.<br>
+        <em>Made elegant.</em>
+    </h2>
+
+    <p>
+        Explore carefully selected 1-piece, 2-piece and
+        3-piece Pakistani outfits designed for everyday
+        elegance and special occasions.
+    </p>
+
+</section>
+
+
+<!-- SHOP -->
+
+<section class="shop-section" id="shop">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="small-title">
+                SHOP RAMEEN
+            </p>
+
+            <h2>
+                Our Collection
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            onclick="filterProducts('all', this)">
+            All
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterProducts('1 Piece', this)">
+            1 Piece
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterProducts('2 Piece', this)">
+            2 Piece
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterProducts('3 Piece', this)">
+            3 Piece
+        </button>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search 1 piece, 2 piece, floral, pink..."
+            onkeyup="searchProducts()"
+        >
+
+        <span>⌕</span>
+
+    </div>
+
+
+    <!-- PRODUCTS -->
+
+    <div
+        class="products"
+        id="products">
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div>
+
+        <p class="small-title">
+            ABOUT RAMEEN
+        </p>
+
+        <h2>
+            Simple.<br>
+            Pakistani.<br>
+            <em>Beautiful.</em>
+        </h2>
+
+    </div>
+
+    <div class="about-text">
+
+        <p>
+            Rameen Store is a modern Pakistani fashion
+            collection featuring elegant 1-piece, 2-piece
+            and 3-piece outfits.
+        </p>
+
+        <p>
+            Each piece is selected with comfort,
+            simplicity and timeless style in mind.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CART OVERLAY -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()">
+</div>
+
+
+<!-- CART -->
+
+<div
+    class="cart"
+    id="cart">
+
+    <div class="cart-header">
+
+        <div>
+
+            <p class="small-title">
+                YOUR SHOPPING BAG
+            </p>
+
+            <h2>
+                Your Bag
+            </h2>
+
+        </div>
+
+        <button onclick="closeCart()">
+            ✕
+        </button>
+
+    </div>
+
+
+    <div id="cartItems"></div>
+
+
+    <div class="cart-bottom">
+
+        <div class="total">
+
+            <span>Total</span>
+
+            <strong id="cartTotal">
+                Rs. 0
+            </strong>
+
+        </div>
+
+        <button
+            class="checkout"
+            onclick="checkout()">
+            Proceed to Checkout →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CHECKOUT -->
+
+<div
+    class="modal"
+    id="checkoutModal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            onclick="closeCheckout()">
+            ✕
+        </button>
+
+        <p class="small-title">
+            RAMEEN STORE
+        </p>
+
+        <h2>
+            Complete Your Order
+        </h2>
+
+        <input
+            type="text"
+            placeholder="Full Name"
+        >
+
+        <input
+            type="email"
+            placeholder="Email Address"
+        >
+
+        <input
+            type="text"
+            placeholder="Shipping Address"
+        >
+
+        <select>
+
+            <option>
+                Cash on Delivery
+            </option>
+
+            <option>
+                Credit / Debit Card
+            </option>
+
+        </select>
+
+        <button
+            class="checkout"
+            onclick="placeOrder()">
+            Place Order
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="logo">
+        RAMEEN<span>.</span>
+    </div>
+
+    <p>
+        Pakistani fashion · Everyday elegance
+    </p>
+
+    <p class="copyright">
+        © 2025 Rameen Store. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
